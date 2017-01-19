@@ -20,7 +20,7 @@ class Home extends Component {
                   </div>
 
                   <div className="4u 12u$(small)">
-                      <Account/>
+                        <Account/>
                     </div>
 
                 </div>
