@@ -18,6 +18,16 @@ export default (state = initialState, action) => {
         updated['list'] = action.posts
         return updated
 
+    case constants.POST_CREATED:
+        //console.log('POST_CREATED: ' + JSON.stringify(action.posts))
+
+        let updatedList = (updated['list'] == null) ? [] : Object.assign([], updated['list'])
+
+        updatedList.unshift(action.post)
+        updated['list'] = updatedList
+
+        return updated
+
     case constants.CURRENT_LOCATION_CHANGED:
         //console.log('CURRENT_LOCATION_CHANGED: ' + JSON.stringify(action.location))
         updated['currentLocation'] = action.location

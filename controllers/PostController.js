@@ -6,12 +6,28 @@ module.exports = {
     get: function(params, isRaw) {
         return new Promise(function(resolve, reject) {
 
-            Post.find(params, function(err, posts) {
+            //check the params for lat and lng
+            if(params.lat !=null && params.lng != null){
+              // geo spatial query
+              var range = 50/6371
+              params['geo'] = {
+                $near: [params.lat, params.lng],
+                $maxDistance: range
+              }
+              delete params['lat']
+              delete params['lng']
+
+            }
+
+
+
+
+            Post.find(params, null, {sort: {timestamp: -1}}, function(err, posts) {
                 if (err) {
                     reject(err)
                     return
                 }
-                
+
                 if(isRaw)
                 resolve(posts)
                 else{

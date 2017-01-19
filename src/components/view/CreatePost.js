@@ -81,11 +81,19 @@ class CreatePost extends Component {
       <div>
         <h2>Create Post</h2>
         <input id="caption" onChange={this.updatePost.bind(this)} className="form-control" type="text" placeholder="Caption"/><br/>
+        <span className="image right"><img src={this.state.post.image}/></span>
 
         <Dropzone onDrop={this.imageSelected.bind(this)} style={{border:'none'}}>
-          <button className="btn btn-primary">Upload Image</button>
+          <ul className="actions">
+  					    <li><input type="submit" value="Upload"/></li>
+  				</ul>
         </Dropzone><br/>
-        <button onClick={this.submitPost.bind(this)} className="btn btn-success">Submit</button>
+
+        <ul className="actions small">
+							<li><a onClick={this.submitPost.bind(this)} href="#" className="button special small">Submit</a></li>
+				</ul>
+
+
       </div>
     )
   }

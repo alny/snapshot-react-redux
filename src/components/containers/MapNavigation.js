@@ -14,7 +14,6 @@ class MapNavigation extends Component {
   render(){
     return(
       <div>
-        <h2>MapNavigation Component</h2>
         <Map
           center={this.props.posts.currentLocation}
           zoom={14}
