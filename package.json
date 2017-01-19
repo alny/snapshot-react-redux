@@ -3,6 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "build" : "SET NODE_ENV=production webpack && gulp",
+    "postinstall" : "npm run build",
     "start": "node ./bin/www"
   },
   "dependencies": {
